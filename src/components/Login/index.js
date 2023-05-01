@@ -5,9 +5,8 @@ import {
     Avatar,
     TextField,
     Typography,
+    Button,
          } from '@mui/material';
-import { isEmpty } from 'lodash';
-import CustomButton from '../shared/CustomButton';
 import {
     useNavigate,
 } from 'react-router-dom';
@@ -25,7 +24,7 @@ function Login(props) {
 
     useEffect(() => {
         if (isAuthenticated && loginBtn) {
-            navigate("/grid")
+            navigate("/home")
         }
         else (
             navigate("/")
@@ -80,14 +79,13 @@ function Login(props) {
                                 id="password"
                                 autoComplete="current-password"
                             />
-                            <CustomButton
+                            <Button
                                 type="submit"
                                 fullWidth
-                                disabled={loginBtn}
                                 variant="contained"
-                                label='LogIn'
-                            >
-                            </CustomButton>
+                            > 
+                            Login
+                            </Button>
                             </Box>
                         </Box>
                 </Container>

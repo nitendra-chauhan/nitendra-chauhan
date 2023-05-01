@@ -1,6 +1,7 @@
 import {
     LOGIN_FAIL,
-    LOGIN_SUCCESS
+    LOGIN_SUCCESS,
+    LOGOUT_SUCCESS,
 } from './constants';
 import { isEqual } from 'lodash';
 import mockUserData from '../mocks/loginMocks.js';
@@ -21,4 +22,10 @@ export const login = (loginData) => async (dispatch) => {
             payload: 'Login failed'
         })
     }
+}
+
+export const logout = () => (dispatch) => {
+    dispatch({
+        type: LOGOUT_SUCCESS,
+    })
 }

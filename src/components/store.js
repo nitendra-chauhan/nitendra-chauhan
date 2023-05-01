@@ -6,11 +6,15 @@ import {
 import {
     loginReducer
 } from './Login/reducers';
+import {
+    gridReducer
+} from './Grid/reducers';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
 const rootReducers = combineReducers({
-    Login: loginReducer
+    Login: loginReducer,
+    Grid: gridReducer,
 });
 
 const middleware = [thunk];

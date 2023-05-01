@@ -1,6 +1,7 @@
 import {
     LOGIN_SUCCESS,
     LOGIN_FAIL,
+    LOGOUT_SUCCESS,
 } from './constants';
 
 export const loginReducer = (state = { user: {} }, actions = {}) => {
@@ -13,18 +14,26 @@ export const loginReducer = (state = { user: {} }, actions = {}) => {
             return {
                 ...state,
                 user: {
-                    email: payload.email
+                    email: payload
                 },
                 isAuthenticated: true,
             }
-            case LOGIN_FAIL:
-                return {
-                    ...state,
-                    user: {
-                        email: payload.email
-                    },
-                    isAuthenticated: false,
-                }
+        case LOGOUT_SUCCESS:
+            return {
+                ...state,
+                user: {
+                        email: payload
+                },
+                isAuthenticated: false,
+            }
+        case LOGIN_FAIL:
+            return {
+                ...state,
+                user: {
+                    email: payload
+                },
+                isAuthenticated: false,
+            }
         default: {
             return state;
         }

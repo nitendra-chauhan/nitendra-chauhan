@@ -1,15 +1,28 @@
-import { Routes, Route } from 'react-router-dom';
-import Login from '../Login/container.js'
-import Grid from '../Grid/index.js';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import AddData from '../AddData/container.js';
+import Logout from '../Logout/container.js';
+import Grid from '../Grid/container.js';
 
-function Home() {
+function Home(props) { 
+  const {
+    isAuthenticated = false
+  } = props;
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+        navigate("/")
+    }
+}
+,[isAuthenticated, navigate]);
 
   return (
     <>
-      <Routes>
-        <Route exact path="/" element={<Login />}></Route>
-        <Route exact path="/grid" element={<Grid />}></Route>
-      </Routes>
+      <Logout />
+      <AddData />
+      <Grid />
     </>
   );
 }
