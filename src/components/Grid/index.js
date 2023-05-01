@@ -1,8 +1,5 @@
 import { useEffect, useState } from 'react';
 import { isEqual } from 'lodash';
-import {
-  useNavigate,
-} from 'react-router-dom';
 import Table from '@mui/material/Table';
 import CircularProgress from '@mui/material/CircularProgress';
 import TableBody from '@mui/material/TableBody';
@@ -17,13 +14,11 @@ function Grid(props) {
   const {
     isLoading = false,
     users = [{}],
-    isAuthenticated = false,
     userDataLoading, 
     deleteUserData
   } = props;
   
   const [usersDataInState, setUsersDataInState] = useState([{}]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     userDataLoading();
